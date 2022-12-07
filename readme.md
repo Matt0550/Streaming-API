@@ -30,6 +30,12 @@ https://host/eurostreaming
 ```
 You will now be automatically redirected to the website
 
+## Support
+If you need help, you can contact me on Discord: Matt05#6501
+
+Or you can open an issue on GitHub or send me an email at mail@matt05.ml
+
 ## Legacy version
 A old version of the API is available at the following address: https://github.com/Matt0550/streaming-api-legacy
+
 The old version is no longer maintained and no longer works.
