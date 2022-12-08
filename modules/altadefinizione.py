@@ -17,6 +17,9 @@ app_altadefinizione = Blueprint('app_altadefinizione', __name__)
 def altadefinizione():
     try:
         r = requests.get(URL, headers={'User-Agent': 'Mozilla/5.0'}, timeout=5)
+        if r.status_code != 200:
+            return {"message": "Error: " + str(r.status_code), "status": "error"}
+            
         soup = BeautifulSoup(r.text, 'html.parser')
         # Find an h2 with class elementor-heading-title elementor-size-default and get the a tag
         link = soup.find('h2', class_='elementor-heading-title elementor-size-default').find('a')
@@ -28,5 +31,8 @@ def altadefinizione():
         
 @ app_altadefinizione.route('/altadefinizione', methods=['GET'])
 def redirect_altadefinizione():
-    # Redirect to the link returned by the function altadefinizione
-    return redirect(altadefinizione()['message'], code=302)
+    link = altadefinizione()['message']
+    if link.startswith('https://' or 'http://'):
+        return redirect(link, code=302)
+    else:
+        return "<h1>Error</h1><p>The link returned by the API is not valid.</p>" + link, 500

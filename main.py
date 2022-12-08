@@ -16,6 +16,9 @@ PORT = 5000
 # Import modules
 modules = []
 for module in os.listdir('modules'):
+    if module.endswith('.py') and module.startswith("OFF_"):
+        print("Module " + module + " is disabled")
+        continue
     if module.endswith('.py') and module != '__init__.py':
         modules.append(module[:-3])
 

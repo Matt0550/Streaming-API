@@ -17,6 +17,9 @@ app_cb01 = Blueprint('app_cb01', __name__)
 def cb01():
     try:
         r = requests.get(URL, headers={'User-Agent': 'Mozilla/5.0'}, timeout=5)
+        if r.status_code != 200:
+            return {"message": "Error: " + str(r.status_code), "status": "error"}
+
         soup = BeautifulSoup(r.text, 'html.parser')
         # Find a link with start with "https://cb01."
         link = soup.find('a', href=lambda href: href and href.startswith('https://cb01.'))
@@ -29,5 +32,8 @@ def cb01():
 
 @ app_cb01.route('/cb01', methods=['GET'])
 def redirect_cb01():
-    # Redirect to the link returned by the function cb01
-    return redirect(cb01()['message'], code=302)
+    link = cb01()['message']
+    if link.startswith('https://' or 'http://'):
+        return redirect(link, code=302)
+    else:
+        return "<h1>Error</h1><p>The link returned by the API is not valid.</p>" + link, 500
