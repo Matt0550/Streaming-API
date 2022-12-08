@@ -5,7 +5,7 @@ APIs that allow you to receive the updated URL of the most popular streaming sit
 ## API Reference
 
 #### Get url from streaming website
-API URL: Maintance
+API URL: https://streaming.api.matt05.ml/
 ```http
 GET /v1/${website}
 ```
@@ -26,7 +26,7 @@ GET /v1/${website}
 ### Automatic redirect
 
 ```
-https://host/eurostreaming
+https://streaming.api.matt05.ml/eurostreaming
 ```
 You will now be automatically redirected to the website
 
