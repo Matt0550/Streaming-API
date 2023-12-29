@@ -9,7 +9,7 @@ from flask import redirect
 from bs4 import BeautifulSoup
 import requests
 
-URL = 'https://t.me/s/cb01_nuovo_indirizzo_ufficiale/'
+URL = 'https://api.feedly.com/v3/mixes/contents?streamId=feed%2Fhttps%3A%2F%2Fcb01.uno%2Ffeed%2F&count=3&hours=20&backfill=true&ck=1703878041437&ct=feedly.desktop&cv=31.0.2046'
 
 app_cb01 = Blueprint('app_cb01', __name__)
 
@@ -17,12 +17,13 @@ app_cb01 = Blueprint('app_cb01', __name__)
 def cb01():
     try:
         r = requests.get(URL, headers={'User-Agent': 'Mozilla/5.0'}, timeout=5)
+        
         if r.status_code != 200:
             return {"message": "Error: " + str(r.status_code), "status": "error"}
 
-        soup = BeautifulSoup(r.text, 'html.parser')
-        # Find a link with start with "https://cb01."
-        link = soup.find('a', href=lambda href: href and href.startswith('https://cb01.'))
+        # Parse as json
+        r = r.json()
+        link = r['alternate'][0]
         # Return the link
         return {"message": link['href'], "status": "success"}
 
