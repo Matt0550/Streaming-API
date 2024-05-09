@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  streaming-api:
+    image: matt0550/streaming-api
+    ports:
+      - "5000:5000"
+    environment:
+      - PUID=1000     # UID of the user inside the container, make sure it has access to the database file
+      - PGID=1000     # GID of the user inside the container, make sure it has access to the database file
+    restart: unless-stopped
+

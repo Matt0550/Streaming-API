@@ -5,7 +5,7 @@ APIs that allow you to receive the updated URL of the most popular streaming sit
 ## API Reference
 
 #### Get url from streaming website
-API URL: https://streaming.api.matt05.it
+API URL: https://streaming.cloud.matteosillitti.it
 ```http
 GET /v1/${website}
 ```
@@ -26,7 +26,7 @@ GET /v1/${website}
 ### Automatic redirect
 
 ```
-https://streaming.api.matt05.it/eurostreaming
+https://streaming.cloud.matteosillitti.it/eurostreaming
 ```
 You will now be automatically redirected to the website
 

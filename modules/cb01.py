@@ -30,7 +30,6 @@ def cb01():
     except Exception as e:
         return {"message": str(e), "status": "error"}
 
-
 @ app_cb01.route('/cb01', methods=['GET'])
 def redirect_cb01():
     link = cb01()['message']

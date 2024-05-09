@@ -29,7 +29,7 @@ def altadefinizione():
     except Exception as e:
         return {"message": str(e), "status": "error"}
         
-@ app_altadefinizione.route('/altadefinizione', methods=['GET'])
+@app_altadefinizione.route('/altadefinizione', methods=['GET'])
 def redirect_altadefinizione():
     link = altadefinizione()['message']
     if link.startswith('https://' or 'http://'):
