@@ -37,7 +37,7 @@ Discord: https://discord.gg/5WrVyQKWAr
 
 Telegram: https://t.me/Non_Sono_matteo
 
-Mail: mail@matt05.it
+Mail: mail@matteosillitti.it
 
 ## Legacy version
 A old version of the API is available at the following address: https://github.com/Matt0550/streaming-api-legacy
