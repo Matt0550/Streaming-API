@@ -1,6 +1,7 @@
 # Streaming-API
 
-APIs that allow you to receive the updated URL of the most popular streaming sites. (example. euroStreaming)
+APIs that allow you to receive the updated URL of the most popular streaming sites. (example. euroStreaming).
+Only for educational purposes.
 
 ## API Reference
 

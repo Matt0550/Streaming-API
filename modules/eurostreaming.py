@@ -9,7 +9,7 @@ from flask import redirect
 from bs4 import BeautifulSoup
 import requests
 
-URL = 'https://t.me/joinchat/UO4tlY9mcDKL7wl2'
+URL = 'https://eurostreaming-nuovo-indirizzo.online'
 
 app_eurostreaming = Blueprint('app_eurostreaming', __name__)
 
@@ -21,7 +21,7 @@ def eurostreaming():
             return {"message": "Error: " + str(r.status_code), "status": "error"}
         soup = BeautifulSoup(r.text, 'html.parser')
         # Find a div with class tgme_page_description and find any text which contains "https://eurostreaming."
-        link = soup.find('div', class_='tgme_page_description').find(text=lambda text: text and "https://eurostreaming." in text)
+        link = soup.find(text=lambda text: text and "https://eurostreaming." in text)
         # Remove all text before "https://eurostreaming." 
         link = link[link.find("https://eurostreaming."):]
         

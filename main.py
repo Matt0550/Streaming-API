@@ -8,7 +8,7 @@ import os
 import sys
 
 app = flask.Flask(__name__)
-app.config["DEBUG"] = True
+app.config["DEBUG"] = False
 
 HOST = os.getenv('HOST', '0.0.0.0')
 PORT = os.getenv('PORT', 5000)
